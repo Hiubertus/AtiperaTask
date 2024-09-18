@@ -1,0 +1,11 @@
+<div class="container my-5 mx-auto flex flex-col items-center space-y-8">
+  <div class="w-full max-w-4xl">
+    <app-search-table
+      [data]="periodicElements"
+      [displayedColumns]="['position', 'name', 'weight', 'symbol']"
+      [showPagination]="true"
+      [skeletonSize]="5"
+      (recordUpdated)="updateRecord($event)">
+    </app-search-table>
+  </div>
+</div>
