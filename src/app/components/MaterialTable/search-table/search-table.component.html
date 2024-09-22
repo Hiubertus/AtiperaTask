@@ -1,4 +1,12 @@
 @defer (when dataSource.data.length > 0) {
+  <div class="mb-4 relative">
+    <input [formControl]="filterControl" placeholder="Filter results"
+           class="w-full p-2 border rounded shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+    @if (isFiltering) {
+      <mat-spinner class="absolute -top-8 -right-1/2" [diameter]="24"></mat-spinner>
+    }
+  </div>
+
   <div class="overflow-x-auto shadow-md sm:rounded-lg">
     <table mat-table [dataSource]="dataSource" class="w-full text-sm text-left text-gray-500">
       @for (column of displayedColumns; track column) {
@@ -12,8 +20,8 @@
               [attr.title]="'Click to edit ' + column">
             {{ element[column] }}
             <span class="absolute inset-y-0 right-0 flex items-center pr-2 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
-              ✎
-            </span>
+                  ✎
+                </span>
           </td>
         </ng-container>
       }
